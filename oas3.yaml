@@ -1,0 +1,592 @@
+openapi: 3.0.0
+info:
+  title: To Do
+  description: ''
+  version: 0.0.1
+servers:
+  - url: 'https://x8ki-letl-twmt.n7.xano.io/api:-20De9st'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas: {}
+paths:
+  '/category/{category_id}':
+    delete:
+      summary: ''
+      description: |-
+        <br /><br />
+        <b>Authentication:</b> not required
+      tags:
+        - category
+      security: []
+      parameters:
+        - name: category_id
+          in: path
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Success!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+        '400':
+          description: Input Error. Check the request payload for issues.
+        '401':
+          description: Unauthorized
+        '403':
+          description: >-
+            Access denied. Additional privileges are needed access the requested
+            resource.
+        '404':
+          description: Not Found. The requested resource does not exist.
+        '429':
+          description: Rate Limited. Too many requests.
+        '500':
+          description: Unexpected error
+    get:
+      summary: ''
+      description: |-
+        <br /><br />
+        <b>Authentication:</b> not required
+      tags:
+        - category
+      security: []
+      parameters:
+        - name: category_id
+          in: path
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Success!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    format: int64
+                    description: ''
+                  created_at:
+                    type: number
+                    format: timestamptz
+                    description: ''
+                    default: now
+                  name:
+                    type: string
+                    description: ''
+        '400':
+          description: Input Error. Check the request payload for issues.
+        '401':
+          description: Unauthorized
+        '403':
+          description: >-
+            Access denied. Additional privileges are needed access the requested
+            resource.
+        '404':
+          description: Not Found. The requested resource does not exist.
+        '429':
+          description: Rate Limited. Too many requests.
+        '500':
+          description: Unexpected error
+    put:
+      summary: ''
+      description: |-
+        <br /><br />
+        <b>Authentication:</b> not required
+      tags:
+        - category
+      security: []
+      parameters:
+        - name: category_id
+          in: path
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Success!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    format: int64
+                    description: ''
+                  created_at:
+                    type: number
+                    format: timestamptz
+                    description: ''
+                    default: now
+                  name:
+                    type: string
+                    description: ''
+        '400':
+          description: Input Error. Check the request payload for issues.
+        '401':
+          description: Unauthorized
+        '403':
+          description: >-
+            Access denied. Additional privileges are needed access the requested
+            resource.
+        '404':
+          description: Not Found. The requested resource does not exist.
+        '429':
+          description: Rate Limited. Too many requests.
+        '500':
+          description: Unexpected error
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+              required:
+                - name
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+              required:
+                - name
+  /category:
+    get:
+      summary: ''
+      description: |-
+        <br /><br />
+        <b>Authentication:</b> not required
+      tags:
+        - category
+      security: []
+      parameters: []
+      responses:
+        '200':
+          description: Success!
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      format: int64
+                      description: ''
+                    created_at:
+                      type: number
+                      format: timestamptz
+                      description: ''
+                      default: now
+                    name:
+                      type: string
+                      description: ''
+        '400':
+          description: Input Error. Check the request payload for issues.
+        '401':
+          description: Unauthorized
+        '403':
+          description: >-
+            Access denied. Additional privileges are needed access the requested
+            resource.
+        '404':
+          description: Not Found. The requested resource does not exist.
+        '429':
+          description: Rate Limited. Too many requests.
+        '500':
+          description: Unexpected error
+    post:
+      summary: ''
+      description: |-
+        <br /><br />
+        <b>Authentication:</b> not required
+      tags:
+        - category
+      security: []
+      parameters: []
+      responses:
+        '200':
+          description: Success!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    format: int64
+                    description: ''
+                  created_at:
+                    type: number
+                    format: timestamptz
+                    description: ''
+                    default: now
+                  name:
+                    type: string
+                    description: ''
+        '400':
+          description: Input Error. Check the request payload for issues.
+        '401':
+          description: Unauthorized
+        '403':
+          description: >-
+            Access denied. Additional privileges are needed access the requested
+            resource.
+        '404':
+          description: Not Found. The requested resource does not exist.
+        '429':
+          description: Rate Limited. Too many requests.
+        '500':
+          description: Unexpected error
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+              required:
+                - name
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+              required:
+                - name
+  '/tasks/{tasks_id}':
+    delete:
+      summary: Delete tasks record.
+      description: |-
+        Delete tasks record.
+        <br /><br />
+        <b>Authentication:</b> not required
+      tags:
+        - tasks
+      security: []
+      parameters:
+        - name: tasks_id
+          in: path
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Success!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+        '400':
+          description: Input Error. Check the request payload for issues.
+        '401':
+          description: Unauthorized
+        '403':
+          description: >-
+            Access denied. Additional privileges are needed access the requested
+            resource.
+        '404':
+          description: Not Found. The requested resource does not exist.
+        '429':
+          description: Rate Limited. Too many requests.
+        '500':
+          description: Unexpected error
+    get:
+      summary: Get tasks record
+      description: |-
+        Get tasks record
+        <br /><br />
+        <b>Authentication:</b> not required
+      tags:
+        - tasks
+      security: []
+      parameters:
+        - name: tasks_id
+          in: path
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Success!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    format: int64
+                    description: ''
+                  created_at:
+                    type: number
+                    format: timestamptz
+                    description: ''
+                    default: now
+                  name:
+                    type: string
+                    description: ''
+                  category:
+                    type: integer
+                    format: int64
+                    description: ''
+        '400':
+          description: Input Error. Check the request payload for issues.
+        '401':
+          description: Unauthorized
+        '403':
+          description: >-
+            Access denied. Additional privileges are needed access the requested
+            resource.
+        '404':
+          description: Not Found. The requested resource does not exist.
+        '429':
+          description: Rate Limited. Too many requests.
+        '500':
+          description: Unexpected error
+    patch:
+      summary: Edit tasks record
+      description: |-
+        Edit tasks record
+        <br /><br />
+        <b>Authentication:</b> not required
+      tags:
+        - tasks
+      security: []
+      parameters:
+        - name: tasks_id
+          in: path
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Success!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    format: int64
+                    description: ''
+                  created_at:
+                    type: number
+                    format: timestamptz
+                    description: ''
+                    default: now
+                  name:
+                    type: string
+                    description: ''
+                  category:
+                    type: integer
+                    format: int64
+                    description: ''
+        '400':
+          description: Input Error. Check the request payload for issues.
+        '401':
+          description: Unauthorized
+        '403':
+          description: >-
+            Access denied. Additional privileges are needed access the requested
+            resource.
+        '404':
+          description: Not Found. The requested resource does not exist.
+        '429':
+          description: Rate Limited. Too many requests.
+        '500':
+          description: Unexpected error
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                category:
+                  type: integer
+                  format: int64
+                  description: ''
+              required:
+                - name
+                - category
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                category:
+                  type: integer
+                  format: int64
+                  description: ''
+              required:
+                - name
+                - category
+  /tasks:
+    get:
+      summary: Query all tasks records
+      description: |-
+        Query all tasks records
+        <br /><br />
+        <b>Authentication:</b> not required
+      tags:
+        - tasks
+      security: []
+      parameters: []
+      responses:
+        '200':
+          description: Success!
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      format: int64
+                      description: ''
+                    created_at:
+                      type: number
+                      format: timestamptz
+                      description: ''
+                      default: now
+                    name:
+                      type: string
+                      description: ''
+                    category:
+                      type: integer
+                      format: int64
+                      description: ''
+        '400':
+          description: Input Error. Check the request payload for issues.
+        '401':
+          description: Unauthorized
+        '403':
+          description: >-
+            Access denied. Additional privileges are needed access the requested
+            resource.
+        '404':
+          description: Not Found. The requested resource does not exist.
+        '429':
+          description: Rate Limited. Too many requests.
+        '500':
+          description: Unexpected error
+    post:
+      summary: Add tasks record
+      description: |-
+        Add tasks record
+        <br /><br />
+        <b>Authentication:</b> not required
+      tags:
+        - tasks
+      security: []
+      parameters: []
+      responses:
+        '200':
+          description: Success!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    format: int64
+                    description: ''
+                  created_at:
+                    type: number
+                    format: timestamptz
+                    description: ''
+                    default: now
+                  name:
+                    type: string
+                    description: ''
+                  category:
+                    type: integer
+                    format: int64
+                    description: ''
+        '400':
+          description: Input Error. Check the request payload for issues.
+        '401':
+          description: Unauthorized
+        '403':
+          description: >-
+            Access denied. Additional privileges are needed access the requested
+            resource.
+        '404':
+          description: Not Found. The requested resource does not exist.
+        '429':
+          description: Rate Limited. Too many requests.
+        '500':
+          description: Unexpected error
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                category:
+                  type: integer
+                  format: int64
+                  description: ''
+              required:
+                - name
+                - category
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                category:
+                  type: integer
+                  format: int64
+                  description: ''
+              required:
+                - name
+                - category
